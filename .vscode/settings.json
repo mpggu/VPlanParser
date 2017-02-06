@@ -1,0 +1,17 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "files.exclude": {
+    "**/typings": false,
+    "**/node_modules": false,
+    "**/.es*": false,
+    "**/.gitignore": false,
+    "**/jsconfig.json": false,
+    "**/package.json": false,
+    "**/typings.json": false
+  },
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.renderIndentGuides": true,
+  "files.autoSave": "onFocusChange",
+  "vsicons.presets.angular": false
+}

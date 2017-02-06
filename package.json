@@ -1,0 +1,25 @@
+{
+  "name": "vplanparser",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/VPlanParser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpggu/VPlanParser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mpggu/VPlanParser/issues"
+  },
+  "author": "Manuel Kraus <manuel@kraus.rocks>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "moment": "^2.17.1"
+  },
+  "engines": {
+    "node": ">=6" 
+  }
+}
