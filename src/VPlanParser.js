@@ -123,12 +123,15 @@ class VPlanParser {
       return new Error('The search is limited to one group');
     }
     key = key.toLowerCase();
-    query = query.toLowerCase();
+    query = query.toLowerCase().split('');
 
     return this.table.filter(t => {
       const k = t[key].toLowerCase();
 
-      return k === query || k.includes(query);
+      for (let i = 0; i < query.length; i++) {
+        if (!k.includes(query[i])) return false;
+      }
+      return true;
     });
   }
 }
