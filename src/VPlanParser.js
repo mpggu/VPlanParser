@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
 const moment = require('moment');
+const iconv = require('iconv-lite');
 
 
 class VPlanParser {
@@ -16,7 +17,9 @@ class VPlanParser {
    * @memberOf Vertretungsplan
    */
   constructor(data) {
-    const $ = cheerio.load(data);
+    const $ = cheerio.load(iconv.decode(new Buffer(data), 'ISO-8859-1'), {
+      decodeEntities: false,
+    });
 
     this.loadMeta($);
     this.loadInfo($);
@@ -55,6 +58,8 @@ class VPlanParser {
       // Q3/Q4BiEffFkJaeKorTüVolWil -> Q3/Q4
       if (t.klasse.startsWith('Q')) {
         t.klasse = t.klasse.substring(0, 5);
+      } else if (t.klasse.startsWith('0')) {
+        t.klasse = t.klasse.substring(1);
       }
 
       return t;
