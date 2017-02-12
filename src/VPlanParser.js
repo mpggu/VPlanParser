@@ -9,6 +9,7 @@ class VPlanParser {
    * Creates an instance of Vertretungsplan.
    *
    * @param {string} data The XML content of the VPlan to parse, e.g. fs.readFileSync('subst_001.htm')
+   * @param {string} encoding Encoding of the data. Defaults to UTF-8 (Raw file is ISO-8859-1)
    *
    * @prop {Date} date The date that the VPlan is describing
    * @prop {Date} lastEdited When the VPlan was last edited
@@ -16,8 +17,8 @@ class VPlanParser {
    *
    * @memberOf Vertretungsplan
    */
-  constructor(data) {
-    const $ = cheerio.load(iconv.decode(new Buffer(data), 'ISO-8859-1'), {
+  constructor(data, encoding = 'UTF-8') {
+    const $ = cheerio.load(iconv.decode(new Buffer(data), encoding), {
       decodeEntities: false,
     });
 
