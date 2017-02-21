@@ -13,11 +13,14 @@ class VPlanParser {
    *
    * @prop {Date} date The date that the VPlan is describing
    * @prop {Date} lastEdited When the VPlan was last edited
+   * @prop {string} raw The raw XML content of the original file
    * @prop {Array} table Substitution objects. Keys are determined by the table headings.
    *
    * @memberOf Vertretungsplan
    */
   constructor(data, encoding = 'UTF-8') {
+    this.raw = data;
+
     const $ = cheerio.load(iconv.decode(new Buffer(data), encoding), {
       decodeEntities: false,
     });
