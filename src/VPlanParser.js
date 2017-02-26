@@ -65,7 +65,7 @@ class VPlanParser {
       } else if (t.klasse.startsWith('0')) {
         t.klasse = t.klasse.substring(1);
       }
-
+      t.klasse = t.klasse.toUpperCase();
       return t;
     });
   }
