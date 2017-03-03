@@ -136,11 +136,13 @@ class VPlanParser {
 
     return this.table.filter(t => {
       const k = t[key].toLowerCase();
+      let isFirstChar = false;
 
       for (let i = 0; i < query.length; i++) {
+        if (k.indexOf(query[i]) === 0) isFirstChar = true;
         if (!k.includes(query[i])) return false;
       }
-      return true;
+      return isFirstChar;
     });
   }
 }
