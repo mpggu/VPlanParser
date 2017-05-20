@@ -66,6 +66,11 @@ class VPlanParser {
         t.klasse = t.klasse.substring(1);
       }
       t.klasse = t.klasse.toUpperCase();
+
+      // 1-2 -> 1 - 2
+      if (t.stunde && t.stunde[1] === '-') {
+        t.stunde = t.stunde.split('-').join(' - ');
+      }
       return t;
     });
   }
