@@ -146,6 +146,9 @@ class VPlanParser {
       for (let i = 0; i < query.length; i++) {
         if (k.indexOf(query[i]) === 0) isFirstChar = true;
         if (!k.includes(query[i])) return false;
+
+        // Exceptional case: "EE"; All chars are the same
+        if (/^(.)\1+$/.test(query.join('')) && k[1] !== query[0] && k.length === 2) return false;
       }
       return isFirstChar;
     });
